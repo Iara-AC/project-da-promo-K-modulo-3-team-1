@@ -143,4 +143,10 @@ False -> No
 True -> Yes
 
 
+## Fase 2:
 
+##Transformación de los datos
+
+-Buscar columnas categoricas: crear funcion para revisar cada una de las columns
+-Comparacion de info redundante de cada column
+-Revisión de notas. IMPORTANTE
