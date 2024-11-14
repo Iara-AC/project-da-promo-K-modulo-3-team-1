@@ -23,6 +23,8 @@ Así que aqui podemos poner todos los NaN como 'non-travel'.
 PREGUNTA: que significa el NaN en esta columna??  
 NaN - NO hay este dato 
 
+Gestionar los nulos: Poner como 'Unknow'
+
 **distancefromhome** esta correcta, porque es un inter
                     HAY UN ERROR EN ESTOS DATOS: Pero hay que hacer comprobaciones
                     convertir estos números en absoluto.
@@ -31,6 +33,8 @@ NaN - NO hay este dato
 
 **educationfield**  - Substituir NaN por 'No data'.
 CAMBIAR el tipo de dato a string.
+
+Gestionar los nulos: Poner como 'Unknow'
 
 **employeecount** - un contador para cada trabajador. Esta CORRECTA.
 
