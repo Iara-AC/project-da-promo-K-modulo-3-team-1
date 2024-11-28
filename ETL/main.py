@@ -416,7 +416,7 @@ print("-------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------
 
-print("""Calculo de lo que costaria el reemplazo de cada empleado.
+print("""NEXTSTEPS: Calculo de lo que costaria el reemplazo de cada empleado.
 Por lo que vemos para la empresa que significa en terminos economicos que haya una alta rotación y posteriormente tengamos que sustituir a los empleados 
 que significa en terminos economicos.""")
 print("---------------------------------------------------------------------------")
@@ -538,11 +538,6 @@ print("-------------------------------------------------------------------------
 
 #---------------------------------------------------------------------------
 
-# Estamos haciendo una separacion, dejando solo la columna businesstravel.
-
-job_satisfecha = df1[df1['jobsatisfaction'].isin([3,4])]["businesstravel"]
-job_no_satisfecha = df1[df1['jobsatisfaction'].isin([1,2])]["businesstravel"]
-
 print("Creacion del Cross_Table:")
 cross_table_satisfaccion =  pd.crosstab(df1["SatisfactionLevel"], df1["businesstravel"])
 print(cross_table_satisfaccion)
@@ -599,6 +594,20 @@ print("-------------------------------------------------------------------------
       
 #---------------------------------------------------------------------------
 
+# Grafica de distancefromhome.
+
+columnas3 = ["distancefromhome"]
+
+fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(20, 10)) 
+
+# Si solo hay un gráfico, no hace falta usar axes.flat
+sns.boxplot(x = columnas3[0], data = df, ax = axes)
+
+plt.tight_layout()
+
+
+#---------------------------------------------------------------------------
+
 print("Hipotesis de Movilidad:")
 print("---------------------------------------------------------------------------")
 
@@ -608,7 +617,71 @@ H₁: "La satisfacción laboral depende de la distancia al trabajo." """)
 medianadistancefromhome = df1["distancefromhome"].median()
 print("La mediana de distancefromhome:")
 print("medianadistancefromhome")
+print("---------------------------------------------------------------------------")
+
 #---------------------------------------------------------------------------
 
+df1["distancefromhome"] = df1["distancefromhome"].fillna(medianadistancefromhome)
+
+print("La media de distancefromhome:")
+df1["distancefromhome"].describe()[["mean", "50%"]]
+print("---------------------------------------------------------------------------")
+
+print("La media de job_satidfecha de la columna distancefromhome")
+mediana_distancefromhome_sat = job_satisfecha["distancefromhome"].mean()
+print(mediana_distancefromhome_sat)
+print("---------------------------------------------------------------------------")
+
+print("La media de job_no_satidfecha de la columna distancefromhome")
+mediana_distancefromhome_no_sat = job_no_satisfecha["distancefromhome"].mean()
+print(mediana_distancefromhome_no_sat)
+print("---------------------------------------------------------------------------")
+
+print("""REFLEXIÓN HIPOTESIS MOVILIDAD:
+Hemos contrastado tres hipótesis respecto a datos de movilidad de los empleados en relación a la satisfacción.
+Las tres variables contrastadas han sido viajes , trabajo remoto y distancia de casa a la oficina . 
+En las tres ha sucedido que hemos contrastado que no tiene relación con la satisfacción laboral, por lo que 
+descartamos avanzar en esta linea de investigación.      """)
+
+
+print("---------------------------------------------------------------------------")
+
+#---------------------------------------------------------------------------
+
+print("Grupo A; df_satisfecha (Control): Empleados con un nivel de satisfacción en el trabajo igual o superior a 3 en una escala de 1 a 5.")
+
+print("---------------------------------------------------------------------------")
+print("CrossTable satisfaccion2")
+cross_table_satisfaccion2 =  pd.crosstab(df1['SatisfactionLevel'], df1["educationfield"])
+print(cross_table_satisfaccion2)
+print("---------------------------------------------------------------------------")
+
+#---------------------------------------------------------------------------
+
+# Test de Chi-cuadrado 
+
+print("Test de Chi-cuadrado:")
+chi2, p, dof, expected = chi2_contingency(cross_table_satisfaccion2)
+print(f"Chi2: {chi2}, p-valor: {p}, Grados de libertad: {dof}")
+print("---------------------------------------------------------------------------")
+
+# Interpretar resultado
+print("Interpretar resultado:")
+if p < 0.05:
+     print("Rechazamos la hipótesis nula: Hay una relación significativa.") 
+else:
+     print("No podemos rechazar la hipótesis nula: No hay relación significativa.")
+print("---------------------------------------------------------------------------")
+
+#---------------------------------------------------------------------------
+
+# Crear el boxplot
+plt.figure(figsize=(8, 6)) 
+sns.boxplot(data = df, width=0.5, y = "educationfield", x = "jobsatisfaction")
+ # Ajustar la posición de los ticks en el eje X
+plt.yticks(ticks=[0, 1, 2, 3, 4, 5, 6, ], labels=['desconocido', 'life sciences', 'technical degree', 'medical',
+       'other', 'marketing', 'human resources'], fontsize=6)
+
+#---------------------------------------------------------------------------
 
 
