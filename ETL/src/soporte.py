@@ -177,6 +177,72 @@ def convertir_valores(valor):
         print(f"Error al procesar el valor {valor}: {e}")
         return np.nan  # Manejar errores con np.nan
     
-    #-------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------
+#---------------------------------------------------------------------------
+#------------------------------ GRAFICOS------------------------------------
+#---------------------------------------------------------------------------
+#---------------------------------------------------------------------------
 
+# Función para calcular la tasa de rotación.
+
+def calcular_tasa_rotacion(empleados_inicio, empleados_fin, empleados_salieron):
+    # Calcular el promedio de empleados
+    promedio_empleados = (empleados_inicio + empleados_fin) / 2
     
+    # Calcular la tasa de rotación
+    tasa_rotacion = (empleados_salieron / promedio_empleados) * 100
+    
+    return round(tasa_rotacion, 2)  # Redondeamos a 2 decimales
+
+
+#-------------------------------------------------------------------------------------------------------------------------
+
+# Función para calcular el costo de rotación para cada empleado
+def calcular_costo_empleado(row):
+    # Costo de reclutamiento basado en el nivel del trabajo
+    if row['joblevel'] <= 2:  # Niveles bajos
+        costo_reclutamiento = 5000
+    else:  # Niveles medios/altos
+        costo_reclutamiento = 10000
+    
+    # Costo de formación basado en el número de capacitaciones
+    costo_formacion = row['trainingtimeslastyear'] * 1000  # $1,000 por capacitación
+    
+    # Pérdida de productividad: 2 meses de salario mensual
+    perdida_productividad = row['monthlyincome'] * 2
+    
+    # Costo total
+    return costo_reclutamiento + costo_formacion + perdida_productividad
+
+#---------------------------------------------------------------------------
+
+# Función para calcular el costo de rotación para cada empleado
+
+def calcular_costo_empleado(row):
+    # Costo de reclutamiento basado en el nivel del trabajo
+    if row['joblevel'] <= 2:  # Niveles bajos
+        costo_reclutamiento = 5000
+    else:  # Niveles medios/altos
+        costo_reclutamiento = 10000
+    
+    # Costo de formación basado en el número de capacitaciones
+    costo_formacion = row['trainingtimeslastyear'] * 1000  # $1,000 por capacitación
+    
+    # Pérdida de productividad: 2 meses de salario mensual
+    perdida_productividad = row['monthlyincome'] * 2
+    
+    # Costo total
+    return costo_reclutamiento + costo_formacion + perdida_productividad
+
+#---------------------------------------------------------------------------
+
+
+def calcular_rotacion_nivel(bajas_nivel, empleados_inicio, empleados_fin):
+
+    promedio_empleados = (empleados_inicio + empleados_fin) / 2
+    rotacion = (bajas_nivel / promedio_empleados) * 100
+    return rotacion
+
+#---------------------------------------------------------------------------
+
+
