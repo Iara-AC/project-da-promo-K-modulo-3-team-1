@@ -1,5 +1,7 @@
 
-# Proyecto de Análisis de Retención de Empleados y Satisfacción en el Trabajo
+# Hola a todos! 👋 Hi everyone! 👋
+
+## Proyecto de Análisis de Retención de Empleados y Satisfacción en el Trabajo
 
 - Descripción General:
 
@@ -49,6 +51,8 @@ Carmen Arazola - Equipo de Desarrollo
 
 2. Asegurar la integridad y consistencia de los datos para el análisis posterior.
 
+---
+
 ### Fase 3: Diseño e Inserción de Base de Datos
 
 - Diseñar la estructura de la base de datos relacional, incluyendo tablas, relaciones, claves primarias y foráneas.
@@ -68,6 +72,8 @@ Grupo A (Control): Satisfacción ≥ 3.
 Grupo B (Variante): Satisfacción < 3.
 - Calcular y comparar las tasas de rotación en ambos grupos.
 - Realizar análisis estadístico para evaluar diferencias significativas.
+
+---
 
 ### Fase 5: Creación de un Pipeline ETL
 
@@ -96,5 +102,105 @@ Proveer gráficos claros y relevantes para la presentación final.
 - Base de datos estructurada y actualizable mediante un pipeline ETL.
 - Herramientas visuales para facilitar decisiones basadas en datos.
 
+---
 
+# Hi everyone! 👋 Hola a todos! 👋
+
+## Employee Retention and Job Satisfaction Analysis Project
+
+- Overview:
+
+This project, developed by a multidisciplinary team, aims to help ABC Corporation reduce employee turnover and improve job satisfaction through data analysis and an A/B experiment. Key insights will be provided to support strategic decision-making.
+
+---
+
+- Team: Data Sprinters
+
+- Participants:
+
+Iara Alkmim - Scrum Master
+
+Laura Gutiérrez - Scrum Master
+
+Marta Gamarra - Development Team
+
+Carmen Arazola - Development Team
+
+---
+
+- Objectives:
+
+1. Identify key factors affecting employee satisfaction and retention.
+
+2. Test critical hypotheses about the relationship between job satisfaction and turnover using an A/B experiment.
+
+3. Provide data-driven decision-making tools through visualizations and detailed reports.
+
+## Project Phases
+
+### Phase 1: Exploratory Data Analysis (EDA)
+
+- Conduct an initial inspection of the dataset to understand its characteristics.
+- Identify issues such as inconsistent values, typographical errors, duplicates, or redundant columns.
+
+---
+
+### Phase 2: Data Transformation
+
+1. Standardize and clean data:
+
+- Fix categorical columns and typographical errors.
+- Convert incorrect data types.
+- Remove negative or inconsistent values.
+
+2. Ensure data integrity and consistency for subsequent analysis.
+
+---
+
+### Phase 3: Database Design and Insertion 
+
+- Design the structure of a relational database, including tables, relationships, primary keys, and foreign keys.
+- Create the database and insert the processed initial data.
+
+### Phase 4: A/B Experiment
+
+1. Hypothesis: Employees with lower satisfaction are more likely to leave the company.
+
+2. Methodology:
+
+- Create two groups:
+Group A (Control): Satisfaction ≥ 3.
+
+Group B (Variant): Satisfaction < 3.
+- Calculate and compare turnover rates between the groups.
+- Perform statistical analysis to evaluate significant differences.
+
+---
+
+### Phase 5: ETL Pipeline Creation
+
+- Automate the extraction, transformation, and loading of data into the database:
+Extraction: Retrieve data from defined sources (CSV, external databases).
+
+- Transformation: Apply cleaning and normalization rules.
+
+- Loading: Insert data into the defined database structure.
+
+---
+
+### Phase 6: Reporting and Results Visualization
+
+- Generate a detailed report with descriptive analyses and visualizations:
+
+Highlight trends, strengths, and areas for improvement.
+
+Provide clear and relevant graphs for the final presentation.
+
+---
+
+### Expected Outcomes
+
+- Key insights into the relationship between job satisfaction and employee turnover.
+- Structured and updatable database through an ETL pipeline.
+- Visual tools to facilitate data-driven decision-making.
 
